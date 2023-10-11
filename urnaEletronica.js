@@ -16,6 +16,7 @@ function urnaEletronica(){
         (0) Encerrar votação`);
         let opcao = parseInt(prompt("Digite uma opção"));
         console.log(opcao)
+        console.clear()
             if (opcao===1){
                 candidato1 ++
                 console.log("Voto computado.")

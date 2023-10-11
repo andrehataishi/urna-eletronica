@@ -52,7 +52,7 @@ function urnaEletronica(){
                 } else if (candidato3 > candidato2 || candidato3 > candidato2){
                     console.log("\nCom" , candidato3 + votoBranco ,"voto(s) o vencedor das eleições é o candidato:" , nome3)
                 } else if (votoVálido===0) { 
-                    console.log("Não houve votos válidos suficientes determinar o ganhador.")
+                    console.log("Não houve votos válidos suficientes para determinar o ganhador.")
                 } else {
                     console.log("\nHouve empate nas eleições! Não há um vencedor.")
                 }

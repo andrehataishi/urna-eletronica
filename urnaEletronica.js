@@ -6,7 +6,7 @@ function urnaEletronica(){
     let nome1 = prompt("Digite o nome do candidato 1: ").toUpperCase()
     let nome2 = prompt("Digite o nome do candidato 2: ").toUpperCase()
     let nome3 = prompt("Digite o nome do candidato 3: ").toUpperCase()
-
+    console.clear()
     while (contadorMenu===0) {
         console.log(`
         ***URNA ELETRONICA***
@@ -40,19 +40,19 @@ function urnaEletronica(){
             } else if (opcao===0){
                 console.clear()
                 console.log("Total de votos válidos:" , votoVálido = candidato1 + candidato2 + candidato3)
-                console.log(`Total de votos do candidato: ${nome1}:`, candidato1 )
-                console.log(`Total de votos do candidato: ${nome2}:`, candidato2)
-                console.log(`Total de votos do candidato: ${nome3}:`, candidato3)
+                console.log(`Total de votos no candidato: ${nome1}:`, candidato1 )
+                console.log(`Total de votos no candidato: ${nome2}:`, candidato2)
+                console.log(`Total de votos no candidato: ${nome3}:`, candidato3)
                 console.log("Total de votos em branco:", votoBranco)
                 console.log("Total de votos nulo:", votoNulo)
                 if (candidato1 > candidato2 || candidato1 > candidato3){                    
-                    console.log("\nCom" , candidato1 + votoBranco ,"voto(s). O vencedor das eleições é o candidato:" , nome1)
+                    console.log("\nCom" , candidato1 + votoBranco ,"voto(s) o vencedor das eleições é o candidato:" , nome1)
                 } else if (candidato2 > candidato1 || candidato2 > candidato3){
-                    console.log("\nCom" , candidato2 + votoBranco ,"voto(s). O vencedor das eleições é o candidato:" , nome2)
+                    console.log("\nCom" , candidato2 + votoBranco ,"voto(s) o vencedor das eleições é o candidato:" , nome2)
                 } else if (candidato3 > candidato2 || candidato3 > candidato2){
-                    console.log("\nCom" , candidato3 + votoBranco ,"voto(s). O vencedor das eleições é o candidato:" , nome3)
+                    console.log("\nCom" , candidato3 + votoBranco ,"voto(s) o vencedor das eleições é o candidato:" , nome3)
                 } else {
-                    console.log("\nHouve empate nas eleições!")
+                    console.log("\nHouve empate nas eleições! Não há um vencedor.")
                 }
                 break;
             } else {

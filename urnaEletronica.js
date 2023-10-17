@@ -43,17 +43,17 @@ function urnaEletronica(){
                     console.clear()
                     votoTotal = candidato1 + candidato2 + candidato3 + votoBranco + votoNulo
                     console.log("Total de votos válidos:" , votoVálido = candidato1 + candidato2 + candidato3)
-                    console.log(`\nCandidato: ${nome1}\nTotal de votos: ${candidato1}\nPercentual: ${((candidato1*100)/votoVálido).toFixed(2)}%`)
-                    console.log(`\nCandidato: ${nome2}\nTotal de votos: ${candidato2}\nPercentual: ${((candidato2*100)/votoVálido).toFixed(2)}%`)
-                    console.log(`\nCandidato: ${nome3}\nTotal de votos: ${candidato3}\nPercentual: ${((candidato3*100)/votoVálido).toFixed(2)}%`)
+                    console.log(`\nCandidato: ${nome1}\nTotal de votos: ${candidato1}\nPercentual: ${((candidato1*100)/votoTotal).toFixed(2)}%`)
+                    console.log(`\nCandidato: ${nome2}\nTotal de votos: ${candidato2}\nPercentual: ${((candidato2*100)/votoTotal).toFixed(2)}%`)
+                    console.log(`\nCandidato: ${nome3}\nTotal de votos: ${candidato3}\nPercentual: ${((candidato3*100)/votoTotal).toFixed(2)}%`)
                     console.log(`\nTotal de votos em branco: ${votoBranco}\nPercentual: ${((votoBranco*100)/votoTotal).toFixed(2)}%}`)
                     console.log(`\nTotal de votos nulo: ${votoNulo}\nPercentual ${((votoNulo*100)/votoTotal).toFixed(2)}%`)
                     if (candidato1 > candidato2 || candidato1 > candidato3){                  
-                        console.log(`\nCom um total de ${candidato1} voto(s) e um percentual de ${((candidato1*100)/votoVálido).toFixed(2)}%\nO vencedor das eleições é o candidato: ${nome1}`)
+                        console.log(`\nCom um total de ${candidato1} voto(s) e um percentual de ${((candidato1*100)/votoTotal).toFixed(2)}%\nO vencedor das eleições é o candidato: ${nome1}`)
                     } else if (candidato2 > candidato1 || candidato2 > candidato3){
-                        console.log(`\nCom um total de ${candidato2} voto(s) e um percentual de ${((candidato2*100)/votoVálido).toFixed(2)}%, o vencedor das eleições é o candidato: ${nome2}`)
+                        console.log(`\nCom um total de ${candidato2} voto(s) e um percentual de ${((candidato2*100)/votoTotal).toFixed(2)}%, o vencedor das eleições é o candidato: ${nome2}`)
                     } else if (candidato3 > candidato2 || candidato3 > candidato2){
-                        console.log(`\nCom um total de ${candidato3} voto(s) e um percentual de ${((candidato3*100)/votoVálido).toFixed(2)}% o vencedor das eleições é o candidato: ${nome3}`)
+                        console.log(`\nCom um total de ${candidato3} voto(s) e um percentual de ${((candidato3*100)/votoTotal).toFixed(2)}% o vencedor das eleições é o candidato: ${nome3}`)
                     } else if (votoVálido===0) { 
                         console.log("Não houve votos válidos suficientes para determinar o ganhador.")
                     } else {

@@ -1,13 +1,18 @@
 function urnaEletronica(){
     const contadorMenu = 0;
-    let candidato1 = 0, candidato2 = 0, candidato3 = 0, votoBranco = 0, votoNulo = 0, votoTotal, votoVálido = 0;
+    let candidato1 = 0, candidato2 = 0, candidato3 = 0, votoBranco = 0, votoNulo = 0, votoTotal, votoVálido = 0, nome1, nome2, nome3;
     
-    console.log("Definindo os nomes dos candidatos antes da votação.")
-    let nome1 = prompt("Digite o nome do candidato 1: ").toUpperCase()
-    let nome2 = prompt("Digite o nome do candidato 2: ").toUpperCase()
-    let nome3 = prompt("Digite o nome do candidato 3: ").toUpperCase()
+    while (contadorMenu===0){
+        console.log("Definindo os nomes dos candidatos antes da votação.")
+        nome1 = prompt("Digite o nome do candidato 1: ").toUpperCase()
+        nome2 = prompt("Digite o nome do candidato 2: ").toUpperCase()
+        nome3 = prompt("Digite o nome do candidato 3: ").toUpperCase()
+        let libera = confirm(`Nome do candidato 1: ${nome1}\nNome do candidato 2: ${nome2}\nNome do candidato 3: ${nome3}\n\nO nome dos candidatos está correto?\n\n(OK) para liberar a votação\n(CANCELAR) para reeditar os nomes dos candidatos`)
+        if (libera===true){
+            break;
+        }  
+    }
 
-    console.clear()
     while (contadorMenu===0) {
         console.log(`
         ***URNA ELETRONICA***
@@ -17,9 +22,8 @@ function urnaEletronica(){
         (1) Votar no candidato: ${nome1}
         (2) Votar no candidato: ${nome2}
         (3) Votar no candidato: ${nome3}
-        (5) Votar em branco
-        (8) Votar nulo`);
-        let opcao = parseInt(prompt("Digite uma opção"));
+        (5) Votar em branco`);
+        let opcao = parseInt(prompt("Digite sua opção de voto: "));
         console.log(opcao)
         console.clear()
             if (opcao===1){
@@ -34,11 +38,8 @@ function urnaEletronica(){
             } else if (opcao===5) {
                 votoBranco ++
                 console.log("Voto computado.")
-            } else if (opcao===8) {
-                votoNulo ++
-                console.log("Voto computado.")
             } else if (opcao===123456){
-                let seguranca = prompt("Você tem certeza que gostaria de encerrar a votação?\n(S) para encerrar.\n(N) para cancelar e voltar para o menu.").toUpperCase()
+                let seguranca = prompt("Você tem certeza que gostaria de encerrar a votação?\n\n(S) Para encerrar a votação\n(N) Para cancelar e voltar para o menu").toUpperCase()
                 if(seguranca==="S"){
                     console.clear()
                     votoTotal = candidato1 + candidato2 + candidato3 + votoBranco + votoNulo
@@ -62,8 +63,11 @@ function urnaEletronica(){
                     break;
                 }
             } else {
-                votoNulo ++
-                console.log("Voto computado.")
+                let confNulo = confirm("Você gostaria de anular seu voto?");
+                if (confNulo == true){
+                    votoNulo ++
+                    console.log("Voto computado.")
+                }
                 }   
     }
     console.log("\nO programa encerrou")

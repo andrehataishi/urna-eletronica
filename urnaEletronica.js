@@ -1,50 +1,12 @@
-/* Simulação de uma urna eletrônica
- * Autor: André Hideki Hataishi da Silva
- 
- * Conceitos: fluxograma, variáveis, leia, escreva, limpa, escolha-caso,
- * faca-enquanto, se, inicialização, operadores lógicos, precedência
- * 
- * Crie um programa que simule o funcionamento de uma urna eletrônica 
- * (utilizando uma estrutura de repetição para permitir múltiplas votações). 
- * 
- * O programa deve apresentar as seguintes opções de voto (utilizando a 
- * estrutura escolha-caso):
- 
- * 1 -> Candidato 1
- * 2 -> Candidato 2
- * 3 -> Candidato 3
- * 5 -> Voto em branco
- * 8 -> Voto nulo
- * 0 -> Encerrar a votação
- 
- * O programa deve solicitar ao usuário que digite o número do seu voto e 
- * armazenar a opção de voto em uma variável. 
- 
- * Se o usuário escolher uma das opções de candidato, o programa deve 
- * incrementar o contador de votos do respectivo candidato. 
- 
- * Se o usuário escolher a opção voto em branco, o programa deve incrementar 
- * o contador de votos em branco. 
- 
- * Se o usuário escolher a opção voto nulo, o programa deve incrementar o 
- * contador de votos nulos. 
- 
- * Se o usuário escolher a opção encerrar a votação, o programa deve sair 
- * do loop e exibir o resultado final da votação (quantidade e percentual de
- * votos de cada candidato, votos em branco, votos nulos e candidato ganhador,
- * com o seu total de votos e percentual acrescidos os votos em branco).
-   
- * O programa deve continuar a permitir a votação até que o usuário escolha 
- * a opção para encerrar a votação.
- */
-
+/* Autor: André Hideki Hataishi da Silva
+ * SENAI-SP - Conde José Vicente de Azevedo 
+ * Criação de uma urna eletrônica */
 
 function urnaEletronica(){
 
     /* declaração das variáveis */
     const contadorMenu = 0;
     let candidato1 = 0, candidato2 = 0, candidato3 = 0, votoBranco = 0, votoNulo = 0, votoTotal, votoVálido = 0, nome1, nome2, nome3;
-    
 
     /* construindo uma estrutura de repetição para o mesário inserir os nomes dos candidatos, podendo inserir dentro do prompt */
     while (contadorMenu===0){
@@ -58,6 +20,7 @@ function urnaEletronica(){
 
         /* caso os nomes estiverem corretos e o mesário apertar a confimação a repetição é encerrada */
         if (libera===true){
+            console.clear();
             break;
         }  
     }
@@ -101,7 +64,7 @@ function urnaEletronica(){
             /* passo extra de segurança, mais uma opção de confirmação para encerrar a votação. 
             Destaque para o método toUpperCase, para caso o mesário digitar a confirmação em minúsculo, 
             transformar em maiúsculo e entrar na estrutura de decisão */
-                let seguranca = prompt("Você tem certeza que gostaria de encerrar a votação?\n\n(S) Para encerrar a votação\n(N) Para cancelar e voltar para o menu").toUpperCase() 
+                let seguranca = prompt("Você tem certeza que gostaria de encerrar a votação?\n\n(S) Para encerrar a votação\n(N) Para cancelar e voltar para o menu").charAt(0).toUpperCase() 
 
                 /* estrutura de decisão, caso o mesário tenha confirmado o encerramento da votação e passado pelos passos de segurança */
                 if(seguranca==="S"){

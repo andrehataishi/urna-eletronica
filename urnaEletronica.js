@@ -20,7 +20,9 @@ function urnaEletronica(){
 
         /* caso os nomes estiverem corretos e o mesário apertar a confimação a repetição é encerrada */
         if (libera===true){
-            console.clear();
+            console.clear();  
+            //chamando a funcao para armazenar o horario do inicio da votação
+            dataUrna()       
             break;
         }  
     }
@@ -103,13 +105,14 @@ function urnaEletronica(){
                 } else if (candidato3 > candidato2 || candidato3 > candidato2){
                     console.log(`\nCom um total de ${candidato3} voto(s) e um percentual de ${((candidato3*100)/votoTotal).toFixed(2)}% o vencedor das eleições é o candidato: ${nome3}`)
                 } else if (votoVálido===0) { 
-                    console.log("Não houve votos válidos suficientes para determinar o ganhador.")
+                    console.log("\nNão houveram votos válidos suficientes para determinar o ganhador.")
                 } else {
                     // caso tenha empate no numéro de votos de cada candidato
                     console.log("\nHouve empate nas eleições! Não há um vencedor.") 
                 }
-                break;
+                break;                
             }
+
         // estrutura de decisão, caso o usuário não tenha inserido nenhuma opção de voto mostrada no console´, mostrando a opção de anular o voto
         } else { 
             // confirmação para anular o voto
@@ -121,6 +124,15 @@ function urnaEletronica(){
         }   
     } 
 
+    console.log("\nVotação iniciada em:")
+    //chamando a funcao para mostrar a hora em que houve inicio da votação (foi armazenado no começo do código)
+    mostrarHora()
+    console.log("\nVotação finalizada em:")
+    //chamando a funcao para armazenar o horario do fim da votação
+    dataUrna()
+    //chamando a funcao para mostrar a hora em que houve fim da votação (foi armazenado no começo do código)
+    mostrarHora()
+    
     // encerramento do programa
     console.log("\nO programa encerrou")
 }

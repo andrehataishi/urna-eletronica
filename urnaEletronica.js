@@ -22,10 +22,11 @@ function urnaEletronica(){
         if (libera===true){
             console.clear();  
             //chamando a funcao para armazenar o horario do inicio da votação
-            dataUrna()       
             break;
         }  
     }
+
+    horaInicio = dataUrna();
 
     /* menu da urna com estrutura de repetição */
     while (contadorMenu===0) {
@@ -110,6 +111,9 @@ function urnaEletronica(){
                     // caso tenha empate no numéro de votos de cada candidato
                     console.log("\nHouve empate nas eleições! Não há um vencedor.") 
                 }
+
+                //declarando a funcao na variavel para armazenar o horario do fim da votação
+                horaFim = dataUrna();
                 break;                
             }
 
@@ -124,15 +128,14 @@ function urnaEletronica(){
         }   
     } 
 
+    //chamando a variavel para mostrar a hora em que houve inicio da votação (foi armazenado no começo do código)
     console.log("\nVotação iniciada em:")
-    //chamando a funcao para mostrar a hora em que houve inicio da votação (foi armazenado no começo do código)
-    mostrarHora()
+    console.log(horaInicio)
+
+    //chamando a variavel para mostrar a hora em que houve fim da votação (foi armazenado no começo do código)
     console.log("\nVotação finalizada em:")
-    //chamando a funcao para armazenar o horario do fim da votação
-    dataUrna()
-    //chamando a funcao para mostrar a hora em que houve fim da votação (foi armazenado no começo do código)
-    mostrarHora()
-    
+    console.log(horaFim)
+
     // encerramento do programa
     console.log("\nO programa encerrou")
 }

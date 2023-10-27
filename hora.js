@@ -1,20 +1,15 @@
-let hora,minutos,segundos,mili,dia,mes,ano
-
 function dataUrna(){
     var time = new Date();
-    hora = time.getUTCHours();
-    minutos = time.getMinutes();
-    segundos = time.getSeconds();
-    mili = time.getMilliseconds();
-    dia = time.getDate();
-    mes = time.getMonth();
-    ano = time.getFullYear();
+    let hora = time.getUTCHours();
+    let minutos = time.getMinutes();
+    let segundos = time.getSeconds();
+    let mili = time.getMilliseconds();
+    let dia = time.getDate();
+    let mes = time.getMonth();
+    let ano = time.getFullYear();
+    return `Data: ${dia}-${mes+1}-${ano}\nHora: ${hora-3}:${minutos}:${segundos}:${mili}`
 }
 
-function mostrarHora(){
-    let mostrar = console.log(`Data: ${dia}-${mes+1}-${ano}\nHora: ${hora-3}:${minutos}:${segundos}:${mili}`)
-    return {mostrar}
-}
 
 // function mostrar(){
 //     let calendario = new data();

@@ -21,11 +21,12 @@ function urnaEletronica(){
         /* caso os nomes estiverem corretos e o mesário apertar a confimação a repetição é encerrada */
         if (libera===true){
             console.clear();  
-            //chamando a funcao para armazenar o horario do inicio da votação
+            
             break;
         }  
     }
 
+    //chamando a funcao para armazenar o horario do inicio da votação
     horaInicio = dataUrna();
 
     /* menu da urna com estrutura de repetição */
@@ -77,7 +78,7 @@ function urnaEletronica(){
         } else if (opcao===123456){ 
 
             /* passo extra de segurança, mais uma opção de confirmação para encerrar a votação. 
-            Destaque para o método toUpperCase, para caso o mesário digitar a confirmação em minúsculo, 
+            * Destaque para o método toUpperCase, para caso o mesário digitar a confirmação em minúsculo, 
             transformar em maiúsculo e entrar na estrutura de decisão */
             let seguranca = prompt("Você tem certeza que gostaria de encerrar a votação?\n\n(S) Para encerrar a votação\n(N) Para cancelar e voltar para o menu").charAt(0).toUpperCase() 
 

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urna Eletrônica</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"
+        integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
-        button{
+        button {
             background-color: #007BFF;
             color: #fff;
             border: none;
@@ -13,13 +17,19 @@
             padding: 10px 20px;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin: 5px 0px;
         }
     </style>
 </head>
+
 <body>
     <p>Urna Eletrônica <br>Clique no botão para iniciar o programa!</p>
-    <button type="button" onclick="urnaEletronica()">Iniciar</button>
+    <button type="button" onclick="urnaEletronica()">Iniciar Urna</button>
+    <br>
+    <button type="button" onclick="verificaUrnaAtual()">Verificar Integridade</button>
 </body>
+<script src="./integridade.js"></script>
 <script src="./hora.js"></script>
 <script src="./urnaEletronica.js"></script>
+
 </html>

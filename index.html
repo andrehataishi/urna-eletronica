@@ -19,14 +19,33 @@
             transition: background-color 0.3s;
             margin: 5px 0px;
         }
+
+        td+td,
+        th+th {
+            padding-left: 90px;
+        }
+
+        td,
+        th,
+        tr {
+            text-align: center;
+            margin: auto;
+        }
     </style>
+
 </head>
 
 <body>
+
     <p>Urna Eletrônica <br>Clique no botão para iniciar o programa!</p>
+    <br>
+    <p>Tabela Candidatos:</p>
+    <p id="tabela"></p>
+    <br>
     <button type="button" onclick="urnaEletronica()">Iniciar Urna</button>
     <br>
     <button type="button" onclick="verificaUrnaAtual()">Verificar Integridade</button>
+
 </body>
 <script src="./integridade.js"></script>
 <script src="./hora.js"></script>

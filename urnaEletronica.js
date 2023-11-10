@@ -2,31 +2,37 @@
  * SENAI-SP - Conde José Vicente de Azevedo 
  * Criação de uma urna eletrônica */
 
-
 let candidatos = [
-    [7, "Cristiano Ronaldo"],
-    [9, "Ronaldo Cascão"],
-    [10, "Lionel Messi"],
-    [11, "Neymar Jr."],
-    [18, "Ronaldinho Gaúcho"],
+    [11, "Cristiano Ronaldo"],
+    [14, "Ronaldo Cascão"],
+    [22, "Lionel Messi"],
+    [38, "Neymar Jr."],
+    [50, "Ronaldinho Gaúcho"],
     [99, "Para Voto em Branco"]];
 
+document.getElementById("tabela").innerHTML =
+    `<table>
+    <th>Numero</th>
+    <th>Nome</th>
+    </table>`
+
+for (let i = 0; i < candidatos.length; i++) {
     document.getElementById("tabela").innerHTML +=
-        `<table>
-        <th>Numero</th>
-        <th>Nome</th>
-        </table>`
-    for (let i = 0; i < candidatos.length; i++) {
-        document.getElementById("tabela").innerHTML +=
         `<table>
         <tr>
         <td>${candidatos[i][0]}</td>
         <td>${candidatos[i][1]}</td>
         </tr>
         </table>`
-    }
+}
 
-function urnaEletronica() {
+var audio = new Audio('confirmacao.mp3');
+async function som(){
+    audio.currentTime=0
+    return await audio.play();
+}
+
+async function urnaEletronica() {
 
     /* declaração das variáveis */
     const contadorMenu = 0;
@@ -57,7 +63,7 @@ function urnaEletronica() {
             if (seguranca.charAt(0) === "S") {
                 console.clear()
 
-                /* soma de todos os votos */
+                /* await soma de todos os votos */
                 for (let i = 0; i < candidatos.length; i++) {
                     votoTotal += candidatos[i][2]
                     votoVálido += candidatos[i][2]
@@ -68,7 +74,7 @@ function urnaEletronica() {
 
                 votoTotal += votoNulo
 
-                /* mostrando os votos válidos, que é a soma dos votos de todos os candidatos */
+                /* mostrando os votos válidos, que é a await soma dos votos de todos os candidatos */
                 console.log("Total de votos válidos:", votoVálido.toString())
 
                 /* mostrando o total numerico e o percentual de votos de cada candidato, voto branco e nulo */
@@ -79,6 +85,7 @@ function urnaEletronica() {
                         console.log(`\nTotal de votos Nulo: ${votoNulo} \nPercentual ${((votoNulo * 100) / votoTotal).toFixed(2)}% `)
                     }
                 }
+
                 for (let i = 0; i < candidatos.length - 1; i++) {
                     if (votoVálido !== 0) {
                         if (candidatos[i][2] > maiorVoto) {
@@ -109,6 +116,8 @@ function urnaEletronica() {
                             candidatos[i][2]++
                             console.log("Voto computado.")
                             opcaoEscolhida = true
+                            await som()
+                            //https://www.freecodecamp.org/portuguese/news/o-metodo-addeventlistener-exemplo-de-codigo-com-listener-de-eventos-em-javascript/
                             break;
                         }
                     } else {
@@ -117,19 +126,21 @@ function urnaEletronica() {
                             candidatos[i][2]++
                             console.log("Voto computado.")
                             opcaoEscolhida = true
+                            await som()
                             break;
                         }
                     }
-                }
-                else {
+                } else {
                     opcaoEscolhida = false
                 }
             }
+
             if (opcaoEscolhida === false) {
                 let confNulo = confirm("Você gostaria de anular seu voto?");
                 if (confNulo == true) {
                     votoNulo++
                     opcaoEscolhida = false
+                    await som()
                     console.log("Voto computado.")
                 }
             }
